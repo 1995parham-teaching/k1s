@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: k1s
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: k1s
+    spec:
+      containers:
+        - name: hello-server
+          image: 1995parham/k1s:latest
+          ports:
+            - containerPort: 1372
