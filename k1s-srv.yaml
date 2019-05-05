@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: k1s
+spec:
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 1372
+  selector:
+    app: k1s
