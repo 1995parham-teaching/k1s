@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
     - protocol: TCP
-      port: 8000
+      port: 1372
       targetPort: 1372
   selector:
     app: k1s
