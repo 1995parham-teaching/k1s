@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k1s
+spec:
+  rules:
+    - host: k1s.kube.platform.ceit.aut.ac.ir
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k1s
+              servicePort: 1372
