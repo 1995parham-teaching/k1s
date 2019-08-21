@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build hello-server/ --file Dockerfile --tag k1s:hello-server
+      run: docker build hello-server/ --file hello-server/Dockerfile --tag k1s:hello-server
