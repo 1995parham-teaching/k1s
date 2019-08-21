@@ -1,9 +1,9 @@
+---
 kind: Service
 apiVersion: v1
 metadata:
   name: k1s
 spec:
-  type: NodePort
   ports:
     - protocol: TCP
       port: 1372
