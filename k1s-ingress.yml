@@ -1,10 +1,11 @@
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: k1s
 spec:
   rules:
-    - host: k1s.kube.platform.ceit.aut.ac.ir
+    - host: k1s.kube.parham.local
       http:
         paths:
           - path: /
