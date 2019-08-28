@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k1s-public
+spec:
+  rules:
+    - host: k1s.kube.home.1995parham.me
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k1s
+              servicePort: 1372
