@@ -25,3 +25,6 @@ build:
     - cd hello-server && docker build -t registry.gitlab.com/1995parham/k1s/hello-server:latest .
   after_script:
     - docker push registry.gitlab.com/1995parham/k1s/hello-server:latest
+  only:
+    changes:
+      - hello-server/*
