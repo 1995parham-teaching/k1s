@@ -5,7 +5,7 @@ metadata:
   name: k1s
 spec:
   rules:
-    - host: k1s.kube.parham.local
+    - host: k1s.kube.parham.home
       http:
         paths:
           - path: /
