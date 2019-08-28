@@ -17,6 +17,9 @@ format:
 build:
   image: docker:latest
   stage: build
+  services:
+    - name: docker:dind
+      alias: docker
   script:
     - cd hello-server && docker build -t hello-server:latest .
   after_script:
