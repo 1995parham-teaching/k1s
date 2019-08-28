@@ -1,10 +1,8 @@
 ---
-
 # stages that can be used by jobs and is defined globally
 stages:
   - test
   - build
-  - release
 
 # `stage` allows to group jobs into different stages,
 # and jobs of the same stage are executed in parallel
@@ -20,26 +18,10 @@ build:
   services:
     - name: docker:dind
       alias: docker
-  script:
-    - cd hello-server && docker build -t hello-server:latest .
-  after_script:
-    - docker save -o hello-server-latest.tar hello-server:latest
-
-release:gitlab:
-  image: docker:latest
-  stage: release
-  services:
-    - name: docker:dind
-      alias: docker
-  only:
-    - master
-  dependencies:
-    - build
-  variables:
-    DOCKER_DRIVER: overlay2
   before_script:
     - docker info
     - docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}
-    - docker load --input hello-server-latest.tar
   script:
+    - cd hello-server && docker build -t hello-server:latest .
+  after_script:
     - docker push hello-server:latest
