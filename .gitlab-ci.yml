@@ -28,6 +28,9 @@ build:
 release:gitlab:
   image: docker:latest
   stage: release
+  services:
+    - name: docker:dind
+      alias: docker
   only:
     - master
   dependencies:
