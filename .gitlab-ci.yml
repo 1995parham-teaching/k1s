@@ -16,7 +16,7 @@ kubeval:
   stage: test
   image:
     name: garethr/kubeval
-    entrypoint: /bin/sh
+    entrypoint: ["/bin/sh"]
   script:
     - /kubeval -d k1s
 
