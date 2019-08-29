@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: hello-server
-          image: 1995parham/k1s:latest
+          image: registry.gitlab.com/1995parham/k1s/hello-server
           ports:
             - containerPort: 1372
