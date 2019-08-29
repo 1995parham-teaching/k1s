@@ -12,6 +12,12 @@ format:
   script:
     - cd hello-server && golangci-lint run --enable-all
 
+kubeval:
+  stage: test
+  image: garethr/kubeval
+  script:
+    - kubeval *.yml
+
 build:
   image: docker:latest
   stage: build
