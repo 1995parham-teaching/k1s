@@ -16,11 +16,7 @@ kubeval:
   stage: test
   image: garethr/kubeval
   script:
-    - k1s-rs.yaml
-    - k1s-svc.yaml
-    - k1s-ingress.yml
-    - k1s-public-ingress.yml
-
+    - kubeval -d k1s
 
 build:
   image: docker:latest
