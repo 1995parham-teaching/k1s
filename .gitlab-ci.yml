@@ -18,7 +18,7 @@ kubeval:
     name: garethr/kubeval
     entrypoint: [""]
   script:
-    - kubeval -d k1s
+    - kubeval -d k1s/
 
 build:
   image: docker:latest
