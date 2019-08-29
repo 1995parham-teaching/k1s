@@ -10,7 +10,7 @@ format:
   stage: test
   image: golangci/golangci-lint:latest
   script:
-    - golangci-lint -v run --enable-all hello-server/
+    - cd hello-server && golangci-lint -v run --enable-all
 
 kubeval:
   stage: test
