@@ -16,10 +16,10 @@ kubeval:
   stage: test
   image: garethr/kubeval
   script:
-    - kubeval k1s-rs.yaml
-    - kubeval k1s-svc.yaml
-    - kubeval k1s-ingress.yml
-    - kubeval k1s-public-ingress.yml
+    - k1s-rs.yaml
+    - k1s-svc.yaml
+    - k1s-ingress.yml
+    - k1s-public-ingress.yml
 
 
 build:
