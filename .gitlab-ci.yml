@@ -19,7 +19,7 @@ kubeval:
     entrypoint: [""]
   script:
     - kubeval --version
-    - kubeval -d k1s/
+    - kubeval --strict -d k1s/ < /dev/null
 
 build:
   image: docker:latest
