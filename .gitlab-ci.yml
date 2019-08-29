@@ -16,9 +16,10 @@ kubeval:
   stage: test
   image:
     name: garethr/kubeval
-    entrypoint: ["/kubeval"]
+    entrypoint: [""]
   script:
-    - -d k1s/
+    - kubeval --version
+    - kubeval -d k1s/
 
 build:
   image: docker:latest
