@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k1s
+  labels:
+    app: k1s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k1s
+  template:
+    metadata:
+      labels:
+        app: k1s
+    spec:
+      containers:
+        - name: hello-server
+          image: registry.gitlab.com/1995parham/k1s/hello-server
+          ports:
+            - containerPort: 1372
