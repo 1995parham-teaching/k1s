@@ -44,6 +44,9 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, fmt.Sprintf("Say hello from %s to whom left me alone many years ago", hostname))
 	})
+	e.GET("/healthz", func(c echo.Context) error {
+		return c.NoContent(http.StatusNoContent)
+	})
 
 	if err := e.Start(":1372"); err != nil && err != http.ErrServerClosed {
 		logrus.Fatalf("Server startup failed: %s", err)
