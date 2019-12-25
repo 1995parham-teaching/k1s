@@ -17,6 +17,13 @@ spec:
     spec:
       containers:
         - name: hello-server
-          image: registry.gitlab.com/1995parham/k1s/hello-server
+          image: registry.gitlab.com/1995parham/k1s/hello-server:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 1372
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 1372
+            initialDelaySeconds: 3
+            periodSeconds: 3
