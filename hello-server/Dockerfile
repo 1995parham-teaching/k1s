@@ -1,6 +1,6 @@
 # This is a multi-stage Dockerfile and requires >= Docker 17.05
 # https://docs.docker.com/engine/userguide/eng-image/multistage-build/
-FROM golang:1.12-alpine3.9 as builder
+FROM golang:1.13-alpine3.9 as builder
 
 WORKDIR /app
 
