@@ -18,7 +18,7 @@ steps:
     settings:
       repo: docker.pkg.github.com/1995parham/k1s/hello-server
       registry: docker.pkg.github.com
-      dockerfile: hello-server/Dockerfile
+      context: hello-world
       username: 1995parham
       password:
         from_secret: GITHUB_TOKEN
