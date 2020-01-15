@@ -15,10 +15,10 @@ steps:
       - go test -v ./...
   - name: docker
     image: plugins/docker
-    repo: docker.pkg.github.com/1995parham/k1s/hello-server
-    registry: docker.pkg.github.com
-    dockerfile: hello-server/Dockerfile
     settings:
+      repo: docker.pkg.github.com/1995parham/k1s/hello-server
+      registry: docker.pkg.github.com
+      dockerfile: hello-server/Dockerfile
       username: 1995parham
-    password:
-      from_secret: GITHUB_TOKEN
+      password:
+        from_secret: GITHUB_TOKEN
