@@ -1,5 +1,6 @@
 ---
 kind: pipeline
+type: docker
 name: default
 
 steps:
@@ -16,10 +17,11 @@ steps:
   - name: docker
     image: plugins/docker
     settings:
-      repo: docker.pkg.github.com/1995parham/k1s/hello-server
-      registry: docker.pkg.github.com
+      repo: 1995parham/k1s
       dockerfile: hello-server/Dockerfile
       context: hello-server
+      tags:
+        - hello-world
       username: 1995parham
       password:
-        from_secret: GITHUB_TOKEN
+        from_secret: docker_password
