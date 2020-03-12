@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: hello-server
-          image: docker.pkg.github.com/1995parham/k1s/hello-server:latest
+          image: 1995parham/k1s:hello-server
           ports:
-            - containerPort: 1372
+            - containerPort: 1378
