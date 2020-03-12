@@ -27,12 +27,10 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// ShutdownTimeout is a time for shuting down the echo server
+// ShutdownTimeout is a time for shutting down the echo server
 const ShutdownTimeout = 5 * time.Second
 
 func main() {
-	fmt.Println("18.20 at Sep 07 2016 7:20 IR721")
-
 	hostname, err := os.Hostname()
 	if err != nil {
 		logrus.Errorf("Cannot detect host name: %s", err)
@@ -42,21 +40,19 @@ func main() {
 
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, fmt.Sprintf("Say hello from %s to whom left me alone many years ago", hostname))
+		return c.String(http.StatusOK, fmt.Sprintf("Say hello from %s to Raha", hostname))
 	})
 	e.GET("/healthz", func(c echo.Context) error {
 		return c.NoContent(http.StatusNoContent)
 	})
 
-	if err := e.Start(":1372"); err != nil && err != http.ErrServerClosed {
+	if err := e.Start(":1378"); err != nil && err != http.ErrServerClosed {
 		logrus.Fatalf("Server startup failed: %s", err)
 	}
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
-
-	fmt.Println("18.20 As always ... left me alone")
 
 	ctx, cancel := context.WithTimeout(context.Background(), ShutdownTimeout)
 	defer cancel()
