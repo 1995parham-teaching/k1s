@@ -14,6 +14,14 @@ kubectl get rs
 kubectl get pod
 ```
 
+1. Create Deployment
+
+```sh
+kubectl apply -f k1-deployment.yaml
+kubectl get deployment
+kubectl get pod
+```
+
 2. Create Service
 
 ```sh
