@@ -5,7 +5,8 @@ metadata:
   name: k1s
 spec:
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 1378
       targetPort: 1378
   selector:
