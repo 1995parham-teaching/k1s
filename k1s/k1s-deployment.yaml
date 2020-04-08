@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hello-server
-          image: 1995parham/k1s:hello-server
+          image: 1995parham/k1s:hello-world
           imagePullPolicy: Always
           ports:
             - containerPort: 1378
