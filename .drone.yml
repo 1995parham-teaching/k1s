@@ -21,7 +21,7 @@ steps:
       dockerfile: hello-server/Dockerfile
       context: hello-server
       tags:
-        - hello-world
+        - hello-server
       username: 1995parham
       password:
         from_secret: docker_password
