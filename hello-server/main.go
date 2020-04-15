@@ -16,7 +16,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -58,6 +57,6 @@ func main() {
 	defer cancel()
 
 	if err := e.Shutdown(ctx); err != nil {
-		log.Printf("API Service failed on exit: %s", err)
+		logrus.Errorf("API Service failed on exit: %s", err)
 	}
 }
