@@ -4,6 +4,8 @@
 ## Introduction
 Kubernetes is an awesome platform and I want to have fun with it.
 In this repository I have created an example Golang server and then created pod, service and etc. for it.
+The `hello-server` is a simple HTTP server that we want to deploy on cloud. It must have replica so everyone
+can gets their hello.
 
 ## Step by Step
 1. Create ReplicaSet
