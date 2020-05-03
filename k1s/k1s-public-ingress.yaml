@@ -11,4 +11,4 @@ spec:
           - path: /
             backend:
               serviceName: k1s
-              servicePort: 1372
+              servicePort: 1378
