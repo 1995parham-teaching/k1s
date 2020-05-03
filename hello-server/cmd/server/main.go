@@ -15,6 +15,7 @@ package server
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"os"
@@ -27,7 +28,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// ShutdownTimeout is a time for shutting down the echo server
+// ShutdownTimeout is a time for shutting down the echo server.
 const ShutdownTimeout = 5 * time.Second
 
 func main() {
@@ -46,7 +47,7 @@ func main() {
 		return c.NoContent(http.StatusNoContent)
 	})
 
-	if err := e.Start(":1378"); err != nil && err != http.ErrServerClosed {
+	if err := e.Start(":1378"); err != nil && errors.Is(err, http.ErrServerClosed) {
 		logrus.Fatalf("Server startup failed: %s", err)
 	}
 
