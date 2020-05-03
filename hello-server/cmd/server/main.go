@@ -35,12 +35,10 @@ func main() {
 	e := echo.New()
 
 	hh := handler.NewHello()
-
 	hh.Register(e.Group(""))
 
-	e.GET("/healthz", func(c echo.Context) error {
-		return c.NoContent(http.StatusNoContent)
-	})
+	h := handler.NewHealth()
+	h.Register(e.Group(""))
 
 	if err := e.Start(":1378"); err != nil && errors.Is(err, http.ErrServerClosed) {
 		logrus.Fatalf("Server startup failed: %s", err)
