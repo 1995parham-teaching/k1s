@@ -1,23 +1,19 @@
-# This is a multi-stage Dockerfile and requires >= Docker 17.05
-# https://docs.docker.com/engine/userguide/eng-image/multistage-build/
-FROM golang:1.13-alpine3.11 as builder
+FROM golang:alpine AS builder
 
 WORKDIR /app
-
-RUN apk --no-cache add git ca-certificates git gcc g++ libc-dev
 
 COPY . .
 RUN go build -o /bin/app
 
-FROM alpine:3.11
+FROM alpine:latest
 
 WORKDIR /bin/
 
 COPY --from=builder /bin/app .
 
-EXPOSE 1372
+EXPOSE 1378
 
 LABEL maintainer="Parham Alvani <parham.alvani@gmail.com>"
 
-# Comment out to run the migrations before running the binary:
-CMD ["/bin/app"]
+ENTRYPOINT ["/bin/app"]
+CMD ["server"]
