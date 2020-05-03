@@ -11,7 +11,6 @@ import (
 
 // Hello handles the hello messages
 type Hello struct {
-	Status   bool
 	Hostname string
 }
 
@@ -25,7 +24,6 @@ func NewHello() *Hello {
 	}
 
 	return &Hello{
-		Status:   true,
 		Hostname: hostname,
 	}
 }
