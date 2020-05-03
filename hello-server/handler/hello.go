@@ -9,7 +9,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// Hello handles the hello messages
+// Hello handles the hello messages.
 type Hello struct {
 	Hostname string
 }
