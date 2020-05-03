@@ -16,13 +16,13 @@ package server
 import (
 	"context"
 	"errors"
-	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 
+	"github.com/1995parham/k1s/hello-server/handler"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -32,17 +32,12 @@ import (
 const ShutdownTimeout = 5 * time.Second
 
 func main() {
-	hostname, err := os.Hostname()
-	if err != nil {
-		logrus.Errorf("Cannot detect host name: %s", err)
-
-		hostname = "parham"
-	}
-
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, fmt.Sprintf("Say hello from %s to Raha", hostname))
-	})
+
+	hh := handler.NewHello()
+
+	hh.Register(e.Group(""))
+
 	e.GET("/healthz", func(c echo.Context) error {
 		return c.NoContent(http.StatusNoContent)
 	})
