@@ -16,11 +16,14 @@ package server
 import (
 	"context"
 	"errors"
+	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/1995parham/k1s/hello-server/config"
 
 	"github.com/1995parham/k1s/hello-server/handler"
 	"github.com/labstack/echo/v4"
@@ -31,7 +34,7 @@ import (
 // ShutdownTimeout is a time for shutting down the echo server.
 const ShutdownTimeout = 5 * time.Second
 
-func main() {
+func main(cfg config.Config) {
 	e := echo.New()
 
 	hh := handler.NewHello()
@@ -40,7 +43,7 @@ func main() {
 	h := handler.NewHealth()
 	h.Register(e.Group(""))
 
-	if err := e.Start(":1378"); err != nil && errors.Is(err, http.ErrServerClosed) {
+	if err := e.Start(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil && errors.Is(err, http.ErrServerClosed) {
 		logrus.Fatalf("Server startup failed: %s", err)
 	}
 
@@ -56,12 +59,12 @@ func main() {
 	}
 }
 
-func Register(root *cobra.Command) {
+func Register(root *cobra.Command, cfg config.Config) {
 	root.AddCommand(&cobra.Command{
 		Use:   "server",
 		Short: "Run the hello server",
 		Run: func(cmd *cobra.Command, args []string) {
-			main()
+			main(cfg)
 		},
 	})
 }

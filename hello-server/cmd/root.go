@@ -3,6 +3,8 @@ package cmd
 import (
 	"os"
 
+	"github.com/1995parham/k1s/hello-server/config"
+
 	"github.com/1995parham/k1s/hello-server/cmd/server"
 	"github.com/sirupsen/logrus"
 
@@ -20,7 +22,9 @@ func Execute() {
 		Short: "Say hello to kubernetes",
 	}
 
-	server.Register(root)
+	cfg := config.Init("config.yaml")
+
+	server.Register(root, cfg)
 
 	if err := root.Execute(); err != nil {
 		logrus.Errorf("failed to execute root command: %s", err.Error())
