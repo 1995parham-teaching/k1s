@@ -11,11 +11,12 @@ import (
 
 // Hello handles the hello messages.
 type Hello struct {
-	Hostname string
+	Hostname        string
+	GreetingMessage string
 }
 
 // NewHello creates a new instance of hello handler.
-func NewHello() *Hello {
+func NewHello(msg string) *Hello {
 	hostname, err := os.Hostname()
 	if err != nil {
 		logrus.Errorf("cannot detect host name: %s", err)
@@ -24,13 +25,14 @@ func NewHello() *Hello {
 	}
 
 	return &Hello{
-		Hostname: hostname,
+		Hostname:        hostname,
+		GreetingMessage: msg,
 	}
 }
 
 // Say says hello to Raha.
 func (hh *Hello) Say(c echo.Context) error {
-	return c.String(http.StatusOK, fmt.Sprintf("Say hello from %s to Raha", hh.Hostname))
+	return c.String(http.StatusOK, fmt.Sprintf("Say %s from %s to Raha", hh.GreetingMessage, hh.Hostname))
 }
 
 // Register registers routes of hello handler on given group.

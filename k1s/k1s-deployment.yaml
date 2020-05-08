@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hello-server
-          image: 1995parham/k1s:hello-server
+          image: smf8/k1s:hello-server
           imagePullPolicy: Always
           ports:
             - containerPort: 1378
@@ -27,3 +27,14 @@ spec:
               port: 1378
             initialDelaySeconds: 3
             periodSeconds: 3
+          volumeMounts:
+            - name: k1s-config
+              mountPath: /bin/config.yaml
+              subPath: config.yaml
+          envFrom:
+            - configMapRef:
+                name: k1s-config
+      volumes:
+        - name: k1s-config
+          configMap:
+            name: k1s-config
