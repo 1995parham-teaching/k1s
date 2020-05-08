@@ -37,7 +37,7 @@ const ShutdownTimeout = 5 * time.Second
 func main(cfg config.Config) {
 	e := echo.New()
 
-	hh := handler.NewHello()
+	hh := handler.NewHello(cfg.Server.GreetingMessage)
 	hh.Register(e.Group(""))
 
 	h := handler.NewHealth()

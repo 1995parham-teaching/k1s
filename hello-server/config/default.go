@@ -6,7 +6,8 @@ const Port = 1378
 
 func Default() *confmap.Confmap {
 	return confmap.Provider(map[string]interface{}{
-		"server.port": Port,
+		"server.port":             Port,
+		"server.greeting_message": "hello with default",
 	},
 		".",
 	)
