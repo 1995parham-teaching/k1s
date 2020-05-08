@@ -24,6 +24,9 @@ func Init(configFileName string) Config {
 	cfg := new(Config)
 	k := koanf.New(".")
 
+	if err := k.Load(Default(), nil); err != nil {
+		logrus.Errorf("error loading defaults: %s", err)
+	}
 	// load configuration from file
 	if err := k.Load(file.Provider(configFileName), yaml.Parser()); err != nil {
 		logrus.Errorf("error loading %s: %s", configFileName, err)
