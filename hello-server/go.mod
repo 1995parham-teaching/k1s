@@ -3,6 +3,7 @@ module github.com/1995parham/k1s/hello-server
 go 1.14
 
 require (
+	github.com/knadh/koanf v0.10.0
 	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/labstack/echo/v4 v4.1.16
 	github.com/sirupsen/logrus v1.5.0
