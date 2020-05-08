@@ -18,7 +18,7 @@ type Config struct {
 
 type Server struct {
 	Port            int    `koanf:"port"`
-	GreetingMessage string `koanf:"greeting_message"`
+	GreetingMessage string `koanf:"greeting"`
 }
 
 func Init(configFileName string) Config {
