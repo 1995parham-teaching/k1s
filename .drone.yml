@@ -16,6 +16,9 @@ steps:
       - go test -v ./...
   - name: docker
     image: plugins/docker
+    when:
+      branch:
+        - master
     settings:
       repo: 1995parham/k1s
       dockerfile: hello-server/Dockerfile
