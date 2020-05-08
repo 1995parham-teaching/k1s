@@ -1,14 +1,16 @@
 package config
 
-import "github.com/knadh/koanf/providers/confmap"
+import (
+	"github.com/knadh/koanf/providers/structs"
+)
 
 const Port = 1378
 
-func Default() *confmap.Confmap {
-	return confmap.Provider(map[string]interface{}{
-		"server.port":     Port,
-		"server.greeting": "hello with default",
-	},
-		".",
-	)
+func Default() *structs.Structs {
+	return structs.Provider(Config{
+		Server: Server{
+			Port:            Port,
+			GreetingMessage: "hello with default",
+		},
+	}, "koanf")
 }
