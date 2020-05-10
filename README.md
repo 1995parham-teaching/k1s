@@ -33,7 +33,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
     kubectl get pod
     ```
 
-    To visualize the usage of `health-check` you can use `/die` endpoint to make `health-check` fail. and then check what happened with `kubectl get events`.
+    To visualize the usage of `health-check` you can use `/die` endpoint to make `health-check` fail. and then check what happened with `kubectl get events --watch` to watch the whole process as it happens.
 
 3. Create Service
 
@@ -42,7 +42,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
     kubectl get svc
     ```
 
-    `k1s` service is used to associate a name for `k1s-deployment` pod's IP addresses inside cluster. You can create a shell session inside one of pods from `kubectl get pods` and then try  :
+    `k1s` service is used to associate a name for `k1s-deployment` pod's IP addresses inside cluster. You can create a shell session inside one of pods from `kubectl get pods` and then try:
 
     ```shell
     apk add curl
