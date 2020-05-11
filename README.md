@@ -61,4 +61,4 @@ Passing config files and environment variables is through a `ConfigMap`. To test
     > [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#ingress-v1beta1-networking-k8s-io) exposes HTTP and HTTPS routes from outside the cluster to [services](https://kubernetes.io/docs/concepts/services-networking/service/) within the cluster.
 
     It simply provides a way to access your pods from Internet by specifying which requests are destined for your `service`.
-    **For ingress to work you must first add a [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers). Also `DNS` service must be enabled **
+    **For ingress to work you must first add a [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers). Also `DNS` service must be enabled**
