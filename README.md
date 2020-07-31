@@ -1,5 +1,5 @@
 # k1s
-[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/k1s.svg?style=flat-square)](https://cloud.drone.io/1995parham/k1s)
+[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/k1s.svg?style=flat-square&logo=drone)](https://cloud.drone.io/1995parham/k1s)
 
 ## Introduction
 Kubernetes is an awesome platform, and I want to have fun with it.
@@ -12,7 +12,7 @@ First of all switch to your desired namespace. Then follow these instructions
 to have your `hello-server` up and running.
 
 The `hello-server` application requires a `config` to work. Possible options are providing `config` through a `config.yaml` file, environment variables, or default config.
-Passing config files and environment variables is through a `ConfigMap`. To test each way, comment out the other one's way of loading in `k1s-deployment.yaml` 
+Passing config files and environment variables is through a `ConfigMap`. To test each way, comment out the other one's way of loading in `k1s-deployment.yaml`
 
 
 
@@ -51,7 +51,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
 
     By running this command several times, you can see that this service is working also as a simple 	`Load Balancer`.
     **Note: make sure `DNS` service is running for k8s.**
-    
+
 4. Create Ingress
 
     ```sh
