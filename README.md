@@ -44,7 +44,8 @@ Passing config files and environment variables is through a `ConfigMap`. To test
 
     `k1s` service is used to associate a name for `k1s-deployment` pod's IP addresses inside cluster. You can create a shell session inside one of pods from `kubectl get pods` and then try:
 
-    ```shell
+    ```sh
+    kubectl exec <pod> -- sh
     apk add curl
     curl http://k1s:1378
     ```
