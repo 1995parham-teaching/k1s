@@ -56,7 +56,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
     > curl htpp://k1s:1378
     ```
 
-    By running this command several times, you can see that this service is working also as a simple 	`Load Balancer`.
+    By running this command several times, you can see that this service is working also as a simple `Load Balancer`.
     **Note: make sure `DNS` service is running for k8s.**
 
 4. Create Ingress
