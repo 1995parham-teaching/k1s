@@ -4,16 +4,24 @@
 ## Introduction
 Kubernetes is an awesome platform, and I want to have fun with it.
 In this repository I have created an example Golang server and then created pod, service and etc. for it.
-The `hello-server` is a simple HTTP server that we want to deploy on cloud. It must have replica so everyone
-can get their hello.
+The `hello-server` is a simple HTTP server that we want to deploy on cloud. It must have replica so everyone can get their hello.
 
 ## Step by Step
-First of all switch to your desired namespace. Then follow these instructions
-to have your `hello-server` up and running.
+At the beginning you need an up and running kubernetes cluster.
+[Mircok8s](https://microk8s.io/docs) is an awesome platform if you don't know where to start. (For having `kubectl` at your hand with `Mircok8s` check [this](https://microk8s.io/docs/working-with-kubectl))
 
-The `hello-server` application requires a `config` to work. Possible options are providing `config` through a `config.yaml` file, environment variables, or default config.
+First of all, create and switch to your desired namespace.
+
+```sh
+kubectl create namespace k1s
+# kcd is an alias for kubectl context switch
+kcd k1s
+```
+
+Then follow these instructions to have your `hello-server` up and running.
+
+The `hello-server` application requires a `config` to work. Possible options are providing `config` through a `config.yaml` file, environment variables, or stick to the default config.
 Passing config files and environment variables is through a `ConfigMap`. To test each way, comment out the other one's way of loading in `k1s-deployment.yaml`
-
 
 
 1. Create ConfigMap
@@ -23,9 +31,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
     kubectl get configmaps
     ```
 
-    By default, both `config.yaml` and environment variables are set and `hello-server` prioritizes env variables against config file. For only loading `config.yaml`, delete the `envFrom:` part from `k1s-deployment.yaml`.
-
-2. Create Deployment
+2. Create Deployment (kubernetes needs gcr so have shecan at your pocket)
 
     ```sh
     kubectl apply -f k1s-deployment.yaml
@@ -35,19 +41,19 @@ Passing config files and environment variables is through a `ConfigMap`. To test
 
     To visualize the usage of `health-check` you can use `/die` endpoint to make `health-check` fail. and then check what happened with `kubectl get events --watch` to watch the whole process as it happens.
 
-3. Create Service
+3. Create Service (make sure you did `microk8s enable dns`)
 
     ```sh
     kubectl apply -f k1s-svc.yaml
     kubectl get svc
     ```
 
-    `k1s` service is used to associate a name for `k1s-deployment` pod's IP addresses inside cluster. You can create a shell session inside one of pods from `kubectl get pods` and then try:
+    `k1s` service is used to associate a name for `k1s-deployment` pod's IP addresses inside cluster.
+    You can create a pod and access k1s through it.
 
     ```sh
-    kubectl exec <pod> -- sh
-    apk add curl
-    curl http://k1s:1378
+    kubectl run alpine -ti --image alpine --rm --restart=Never -- sh
+    > curl htpp://k1s:1378
     ```
 
     By running this command several times, you can see that this service is working also as a simple 	`Load Balancer`.
