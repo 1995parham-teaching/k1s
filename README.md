@@ -15,13 +15,14 @@ First of all, create and switch to your desired namespace.
 ```sh
 kubectl create namespace k1s
 # kcd is an alias for kubectl context switch
+alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
 kcd k1s
 ```
 
 Then follow these instructions to have your `hello-server` up and running.
 
 The `hello-server` application requires a `config` to work. Possible options are providing `config` through a `config.yaml` file, environment variables, or stick to the default config.
-Passing config files and environment variables is through a `ConfigMap`. To test each way, comment out the other one's way of loading in `k1s-deployment.yaml`
+Passing config files and environment variables is through a *ConfigMap*. To test each way, comment out the other one's way of loading in `k1s-deployment.yaml`
 
 
 1. Create ConfigMap
@@ -31,7 +32,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
     kubectl get configmaps
     ```
 
-2. Create Deployment (kubernetes needs gcr so have shecan at your pocket)
+2. Create Deployment (kubernetes needs *gcr* and *docker-hub* so have [proxy](https://microk8s.io/docs/install-proxy) at your pocket)
 
     ```sh
     kubectl apply -f k1s-deployment.yaml
@@ -53,6 +54,7 @@ Passing config files and environment variables is through a `ConfigMap`. To test
 
     ```sh
     kubectl run alpine -ti --image alpine --rm --restart=Never -- sh
+    > apk add curl
     > curl htpp://k1s:1378
     ```
 
