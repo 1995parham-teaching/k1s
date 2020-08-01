@@ -31,9 +31,6 @@ spec:
             - name: k1s-config
               mountPath: /bin/config.yaml
               subPath: config.yaml
-          envFrom:
-            - configMapRef:
-                name: k1s-config
       volumes:
         - name: k1s-config
           configMap:
