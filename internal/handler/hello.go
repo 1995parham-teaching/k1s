@@ -31,6 +31,7 @@ func NewHello(msg string) *Hello {
 }
 
 // Say says hello to Raha.
+// nolint: wrapcheck
 func (hh *Hello) Say(c echo.Context) error {
 	return c.String(http.StatusOK, fmt.Sprintf("Say %s from %s to Raha", hh.GreetingMessage, hh.Hostname))
 }
