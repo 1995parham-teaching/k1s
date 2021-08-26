@@ -3,11 +3,9 @@ package cmd
 import (
 	"os"
 
-	"github.com/1995parham/k1s/hello-server/config"
-
-	"github.com/1995parham/k1s/hello-server/cmd/server"
+	"github.com/1995parham/k1s/internal/cmd/server"
+	"github.com/1995parham/k1s/internal/config"
 	"github.com/sirupsen/logrus"
-
 	"github.com/spf13/cobra"
 )
 
