@@ -1,6 +1,6 @@
 # k1s
 
-[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/k1s.svg?style=flat-square&logo=drone)](https://cloud.drone.io/1995parham/k1s)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/k1s/ci?label=ci&logo=github&style=flat-square)
 
 ## Introduction
 
