@@ -1,16 +1,3 @@
-/*
- *
- * In The Name of God
- *
- * +===============================================
- * | Author:        Parham Alvani <parham.alvani@gmail.com>
- * |
- * | Creation Date: 04-05-2019
- * |
- * | File Name:     main.go
- * +===============================================
- */
-
 package server
 
 import (
@@ -23,9 +10,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/1995parham/k1s/hello-server/config"
-
-	"github.com/1995parham/k1s/hello-server/handler"
+	"github.com/1995parham/k1s/internal/config"
+	"github.com/1995parham/k1s/internal/handler"
 	"github.com/labstack/echo/v4"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
