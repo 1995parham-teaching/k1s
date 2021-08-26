@@ -15,14 +15,18 @@ func NewHealth() *Health {
 	return &Health{Status: true}
 }
 
+// nolint: wrapcheck
 func (h *Health) Die(c echo.Context) error {
 	h.Status = false
+
 	return c.NoContent(http.StatusNoContent)
 }
 
+// nolint: wrapcheck
 func (h *Health) isAlive(c echo.Context) error {
 	if !h.Status {
 		time.Sleep(1 * time.Minute)
+
 		return echo.ErrInternalServerError
 	}
 
