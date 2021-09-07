@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/labstack/echo/v4"
+	"github.com/gofiber/fiber/v2"
 )
 
 type Health struct {
@@ -16,24 +16,24 @@ func NewHealth() *Health {
 }
 
 // nolint: wrapcheck
-func (h *Health) Die(c echo.Context) error {
+func (h *Health) Die(c *fiber.Ctx) error {
 	h.Status = false
 
-	return c.NoContent(http.StatusNoContent)
+	return c.Status(http.StatusNoContent).Send(nil)
 }
 
 // nolint: wrapcheck
-func (h *Health) isAlive(c echo.Context) error {
+func (h *Health) isAlive(c *fiber.Ctx) error {
 	if !h.Status {
 		time.Sleep(1 * time.Minute)
 
-		return echo.ErrInternalServerError
+		return fiber.ErrInternalServerError
 	}
 
-	return c.NoContent(http.StatusNoContent)
+	return c.Status(http.StatusNoContent).Send(nil)
 }
 
-func (h *Health) Register(g *echo.Group) {
-	g.GET("/healthz", h.isAlive)
-	g.GET("/die", h.Die)
+func (h *Health) Register(g fiber.Router) {
+	g.Get("/healthz", h.isAlive)
+	g.Get("/die", h.Die)
 }
