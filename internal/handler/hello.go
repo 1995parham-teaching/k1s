@@ -5,21 +5,23 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/labstack/echo/v4"
-	"github.com/sirupsen/logrus"
+	"github.com/gofiber/fiber/v2"
+	"go.uber.org/zap"
 )
 
 // Hello handles the hello messages.
 type Hello struct {
 	Hostname        string
 	GreetingMessage string
+
+	Logger *zap.Logger
 }
 
 // NewHello creates a new instance of hello handler.
-func NewHello(msg string) *Hello {
+func NewHello(msg string, logger *zap.Logger) *Hello {
 	hostname, err := os.Hostname()
 	if err != nil {
-		logrus.Errorf("cannot detect host name: %s", err)
+		logger.Error("cannot detect host name", zap.Error(err))
 
 		hostname = "parham"
 	}
@@ -27,16 +29,18 @@ func NewHello(msg string) *Hello {
 	return &Hello{
 		Hostname:        hostname,
 		GreetingMessage: msg,
+
+		Logger: logger,
 	}
 }
 
 // Say says hello to Raha.
 // nolint: wrapcheck
-func (hh *Hello) Say(c echo.Context) error {
-	return c.String(http.StatusOK, fmt.Sprintf("Say %s from %s to Raha", hh.GreetingMessage, hh.Hostname))
+func (hh *Hello) Say(c *fiber.Ctx) error {
+	return c.Status(http.StatusOK).SendString(fmt.Sprintf("Say %s from %s to Raha", hh.GreetingMessage, hh.Hostname))
 }
 
 // Register registers routes of hello handler on given group.
-func (hh *Hello) Register(g *echo.Group) {
-	g.GET("/", hh.Say)
+func (hh *Hello) Register(g fiber.Router) {
+	g.Get("/", hh.Say)
 }
