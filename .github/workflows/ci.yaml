@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
       - run: go test -v ./... -covermode=atomic -coverprofile=coverage.out
       - uses: codecov/codecov-action@v1
         with:
@@ -38,7 +38,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/metadata-action@v3
+      - uses: docker/metadata-action@v4
         id: meta
         with:
           images: ghcr.io/1995parham/k1s
@@ -47,7 +47,7 @@ jobs:
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-      - uses: docker/build-push-action@v2
+      - uses: docker/build-push-action@v3
         with:
           file: "build/package/Dockerfile"
           context: .
