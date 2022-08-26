@@ -1,6 +1,6 @@
 # k1s
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/k1s/ci?label=ci&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham-teaching/k1s/ci?label=ci&logo=github&style=flat-square)
 
 ## Introduction
 
