@@ -5,17 +5,19 @@
 ## Introduction
 
 Kubernetes is an awesome platform, and I want to have fun with it.
-In this repository I have created an example Golang server and then created pod, service and etc. for it.
-The `hello-server` is a simple HTTP server that we want to deploy on cloud. It must have replica so everyone can get their hello.
+In this repository I have created an example Golang server and then created pod, service etc. for it.
+The `hello-server` is a simple HTTP server that we want to deploy on cloud.
+It must have replica, so everyone can get their hello.
 
 ## Step by Step
 
-At the beginning you need an up and running kubernetes cluster.
-[Mircok8s](https://microk8s.io/docs) is an awesome platform if you don't know where to start. (For having `kubectl` at your hand with `Mircok8s` check [this](https://microk8s.io/docs/working-with-kubectl))
+At the beginning you need an up and running Kubernetes cluster.
+[Mircok8s](https://microk8s.io/docs) is an awesome platform if you don't know where to start.
+(For having `kubectl` at your hand with `Mircok8s` check [this](https://microk8s.io/docs/working-with-kubectl))
 
-First of all, create and switch to your desired namespace.
+First, create and switch to your desired namespace.
 
-```sh
+```bash
 kubectl create namespace k1s
 # kcd is an alias for kubectl context switch
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
@@ -29,24 +31,25 @@ Passing config files and environment variables is through a _ConfigMap_. To test
 
 1. Create ConfigMap
 
-   ```sh
+   ```bash
    kubectl apply -f k1s-config-map.yaml
    kubectl get configmaps
    ```
 
 2. Create Deployment (kubernetes needs _gcr_ and _docker-hub_ so have [proxy](https://microk8s.io/docs/install-proxy) at your pocket)
 
-   ```sh
+   ```bash
    kubectl apply -f k1s-deployment.yaml
    kubectl get deployment
    kubectl get pod
    ```
 
-   To visualize the usage of `health-check` you can use `/die` endpoint to make `health-check` fail. and then check what happened with `kubectl get events --watch` to watch the whole process as it happens.
+   To visualize the usage of `health-check` you can use `/die` endpoint to make `health-check` fail,
+   and then check what happened with `kubectl get events --watch` to watch the whole process as it happens.
 
 3. Create Service (make sure you did `microk8s enable dns`)
 
-   ```sh
+   ```bash
    kubectl apply -f k1s-svc.yaml
    kubectl get svc
    ```
@@ -54,7 +57,7 @@ Passing config files and environment variables is through a _ConfigMap_. To test
    `k1s` service is used to associate a name for `k1s-deployment` pod's IP addresses inside cluster.
    You can create a pod and access k1s through it.
 
-   ```sh
+   ```bash
    kubectl run alpine -ti --image alpine --rm --restart=Never -- sh
    > apk add curl
    > curl htpp://k1s:1378
@@ -65,7 +68,7 @@ Passing config files and environment variables is through a _ConfigMap_. To test
 
 4. Create Ingress
 
-   ```sh
+   ```bash
    kubectl apply -f k1s-ingress.yaml
    ```
 
