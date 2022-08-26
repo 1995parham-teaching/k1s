@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/1995parham/k1s/internal/config"
-	"github.com/1995parham/k1s/internal/handler"
+	"github.com/1995parham-teaching/k1s/internal/config"
+	"github.com/1995parham-teaching/k1s/internal/handler"
 	"github.com/gofiber/fiber/v2"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
