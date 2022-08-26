@@ -3,9 +3,9 @@ package cmd
 import (
 	"os"
 
-	"github.com/1995parham/k1s/internal/cmd/server"
-	"github.com/1995parham/k1s/internal/config"
-	"github.com/1995parham/k1s/internal/logger"
+	"github.com/1995parham-teaching/k1s/internal/cmd/server"
+	"github.com/1995parham-teaching/k1s/internal/config"
+	"github.com/1995parham-teaching/k1s/internal/logger"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 )

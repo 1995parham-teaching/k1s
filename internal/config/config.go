@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/1995parham/k1s/internal/logger"
+	"github.com/1995parham-teaching/k1s/internal/logger"
 	"github.com/knadh/koanf"
 	"github.com/knadh/koanf/parsers/yaml"
 	"github.com/knadh/koanf/providers/env"
