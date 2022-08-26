@@ -42,7 +42,7 @@ func main(cfg config.Config, logger *zap.Logger) {
 }
 
 func Register(root *cobra.Command, cfg config.Config, logger *zap.Logger) {
-	// nolint: exhaustivestruct
+	// nolint: exhaustruct
 	root.AddCommand(&cobra.Command{
 		Use:   "server",
 		Short: "Run the hello server",
