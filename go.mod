@@ -3,7 +3,7 @@ module github.com/1995parham-teaching/k1s
 go 1.19
 
 require (
-	github.com/gofiber/fiber/v2 v2.36.0
+	github.com/gofiber/fiber/v2 v2.37.0
 	github.com/knadh/koanf v1.4.3
 	github.com/spf13/cobra v1.5.0
 	go.uber.org/zap v1.23.0
