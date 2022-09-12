@@ -3,7 +3,7 @@ module github.com/1995parham-teaching/k1s
 go 1.19
 
 require (
-	github.com/gofiber/fiber/v2 v2.37.0
+	github.com/gofiber/fiber/v2 v2.37.1
 	github.com/knadh/koanf v1.4.3
 	github.com/spf13/cobra v1.5.0
 	go.uber.org/zap v1.23.0
@@ -21,7 +21,7 @@ require (
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasthttp v1.39.0 // indirect
+	github.com/valyala/fasthttp v1.40.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
