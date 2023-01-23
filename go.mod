@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/gofiber/fiber/v2 v2.41.0
-	github.com/knadh/koanf v1.4.5
+	github.com/knadh/koanf v1.5.0
 	github.com/spf13/cobra v1.6.1
 	go.uber.org/zap v1.24.0
 	golang.org/x/sys v0.0.0-20220825204002-c680a09ffe64 // indirect
