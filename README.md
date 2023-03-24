@@ -1,7 +1,9 @@
 <h1 align="center"> k1s </h1>
 <h6 align="center"> there is only one letter here from k to s which is E </h6>
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham-teaching/k1s/ci.yaml?label=ci&logo=github&style=flat-square&branch=main)
+<p align="center">
+   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/1995parham-teaching/k1s/ci.yaml?style=for-the-badge">
+</p>
 
 ## Introduction
 
