@@ -1,13 +1,14 @@
-# k1s
+<h1 align="center"> k1s </h1>
+<h6 align="center"> there is only one letter here from k to s which is E </h6>
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham-teaching/k1s/ci.yaml?label=ci&logo=github&style=flat-square&branch=main)
 
 ## Introduction
 
-Kubernetes is an awesome platform, and I want to have fun with it.
-In this repository I have created an example Golang server and then created pod, service etc. for it.
-The `hello-server` is a simple HTTP server that we want to deploy on cloud.
-It must have replica, so everyone can get their hello.
+Kubernetes is an awesome platform, and we want to have fun with it here with this project.
+In this repository we've created an example Golang server and then created pod, service etc. for it.
+The `hello-server` is a simple HTTP server that we want to deploy on the cloud.
+It must be replicated, so everyone can get their hello even in the peak time.
 
 ## Step by Step
 
