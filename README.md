@@ -2,7 +2,8 @@
 <h6 align="center"> there is only one letter here from k to s which is E </h6>
 
 <p align="center">
-   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/1995parham-teaching/k1s/ci.yaml?style=for-the-badge">
+   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/1995parham-teaching/k1s/ci.yaml?style=for-the-badge&logo=github">
+   <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/1995parham-teaching/k1s?logo=go&style=for-the-badge">
 </p>
 
 ## Introduction
