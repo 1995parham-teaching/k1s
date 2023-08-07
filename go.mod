@@ -6,7 +6,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.48.0
 	github.com/knadh/koanf v1.5.0
 	github.com/spf13/cobra v1.7.0
-	go.uber.org/zap v1.24.0
+	go.uber.org/zap v1.25.0
 	golang.org/x/sys v0.10.0 // indirect
 )
 
@@ -28,7 +28,6 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.48.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
