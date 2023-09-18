@@ -6,7 +6,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.49.1
 	github.com/knadh/koanf v1.5.0
 	github.com/spf13/cobra v1.7.0
-	go.uber.org/zap v1.25.0
+	go.uber.org/zap v1.26.0
 	golang.org/x/sys v0.11.0 // indirect
 )
 
