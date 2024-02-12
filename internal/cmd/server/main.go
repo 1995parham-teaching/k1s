@@ -46,7 +46,7 @@ func Register(root *cobra.Command, cfg config.Config, logger *zap.Logger) {
 	root.AddCommand(&cobra.Command{
 		Use:   "server",
 		Short: "Run the hello server",
-		Run: func(cmd *cobra.Command, args []string) {
+		Run: func(_ *cobra.Command, _ []string) {
 			main(cfg, logger)
 		},
 	})
