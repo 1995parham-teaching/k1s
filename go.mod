@@ -5,7 +5,7 @@ go 1.22
 require (
 	github.com/gofiber/fiber/v2 v2.52.4
 	github.com/knadh/koanf v1.5.0
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	go.uber.org/zap v1.27.0
 	golang.org/x/sys v0.17.0 // indirect
 )
