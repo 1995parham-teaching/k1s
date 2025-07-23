@@ -27,23 +27,27 @@ func Init(configFileName string) Config {
 	cfg := new(Config)
 	kn := koanf.New(".")
 
-	if err := kn.Load(Default(), nil); err != nil {
+	err := kn.Load(Default(), nil)
+	if err != nil {
 		log.Printf("error loading defaults: %s", err)
 	}
 	// load configuration from file
-	if err := kn.Load(file.Provider(configFileName), yaml.Parser()); err != nil {
+	err := kn.Load(file.Provider(configFileName), yaml.Parser())
+	if err != nil {
 		log.Printf("error loading %s: %s", configFileName, err)
 	}
 
 	// load environment variables
-	if err := kn.Load(env.Provider(Namespace, ".", func(s string) string {
+	err := kn.Load(env.Provider(Namespace, ".", func(s string) string {
 		return strings.ReplaceAll(strings.ToLower(
 			strings.TrimPrefix(s, Namespace)), "_", ".")
-	}), nil); err != nil {
+	}), nil)
+	if err != nil {
 		log.Printf("error loading environment variables: %s", err)
 	}
 
-	if err := kn.Unmarshal("", cfg); err != nil {
+	err := kn.Unmarshal("", cfg)
+	if err != nil {
 		log.Fatalf("error unmarshalling config: %s", err)
 	}
 

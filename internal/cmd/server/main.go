@@ -28,7 +28,8 @@ func main(cfg config.Config, logger *zap.Logger) {
 	h := handler.NewHealth()
 	h.Register(f.Group(""))
 
-	if err := f.Listen(fmt.Sprintf(":%d", cfg.Server.Port)); err != nil && errors.Is(err, http.ErrServerClosed) {
+	err := f.Listen(fmt.Sprintf(":%d", cfg.Server.Port))
+	if err != nil && errors.Is(err, http.ErrServerClosed) {
 		logger.Fatal("Server startup failed", zap.Error(err))
 	}
 
@@ -36,7 +37,8 @@ func main(cfg config.Config, logger *zap.Logger) {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 
-	if err := f.Shutdown(); err != nil {
+	err := f.Shutdown()
+	if err != nil {
 		logger.Error("API Service failed on exit", zap.Error(err))
 	}
 }
