@@ -37,8 +37,7 @@ func main(cfg config.Config, logger *zap.Logger) {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 
-	err := f.Shutdown()
-	if err != nil {
+	if err := f.Shutdown(); err != nil {
 		logger.Error("API Service failed on exit", zap.Error(err))
 	}
 }

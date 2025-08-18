@@ -12,3 +12,4 @@ linters:
     - ireturn
     - revive
     - wrapcheck
+    - noinlineerr

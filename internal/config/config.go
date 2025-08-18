@@ -32,22 +32,19 @@ func Init(configFileName string) Config {
 		log.Printf("error loading defaults: %s", err)
 	}
 	// load configuration from file
-	err := kn.Load(file.Provider(configFileName), yaml.Parser())
-	if err != nil {
+	if err := kn.Load(file.Provider(configFileName), yaml.Parser()); err != nil {
 		log.Printf("error loading %s: %s", configFileName, err)
 	}
 
 	// load environment variables
-	err := kn.Load(env.Provider(Namespace, ".", func(s string) string {
+	if err := kn.Load(env.Provider(Namespace, ".", func(s string) string {
 		return strings.ReplaceAll(strings.ToLower(
 			strings.TrimPrefix(s, Namespace)), "_", ".")
-	}), nil)
-	if err != nil {
+	}), nil); err != nil {
 		log.Printf("error loading environment variables: %s", err)
 	}
 
-	err := kn.Unmarshal("", cfg)
-	if err != nil {
+	if err := kn.Unmarshal("", cfg); err != nil {
 		log.Fatalf("error unmarshalling config: %s", err)
 	}
 
