@@ -15,15 +15,13 @@ func NewHealth() *Health {
 	return &Health{Status: true}
 }
 
-// nolint: wrapcheck
-func (h *Health) Die(c *fiber.Ctx) error {
+func (h *Health) Die(c *fiber.Ctx) error { // nolint: wrapcheck
 	h.Status = false
 
 	return c.Status(http.StatusNoContent).Send(nil)
 }
 
-// nolint: wrapcheck
-func (h *Health) IsAlive(c *fiber.Ctx) error {
+func (h *Health) IsAlive(c *fiber.Ctx) error { // nolint: wrapcheck
 	if !h.Status {
 		time.Sleep(1 * time.Minute)
 
