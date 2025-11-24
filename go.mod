@@ -5,10 +5,10 @@ go 1.24.0
 toolchain go1.24.1
 
 require (
-	github.com/gofiber/fiber/v2 v2.52.9
+	github.com/gofiber/fiber/v2 v2.52.10
 	github.com/knadh/koanf v1.5.0
 	github.com/spf13/cobra v1.10.1
-	go.uber.org/zap v1.27.0
+	go.uber.org/zap v1.27.1
 )
 
 require (
