@@ -13,6 +13,56 @@ In this repository we've created an example Golang server and then created pod, 
 The `hello-server` is a simple HTTP server that we want to deploy on the cloud.
 It must be replicated, so everyone can get their hello even in the peak time.
 
+## Requirements
+
+- Go 1.25+
+- [GoFiber v3](https://github.com/gofiber/fiber) - Express-inspired web framework
+
+## Development
+
+### Build
+
+```bash
+go build ./...
+```
+
+### Run Tests
+
+```bash
+go test -v ./...
+```
+
+### Run Linter
+
+```bash
+golangci-lint run ./...
+```
+
+### Run Server
+
+```bash
+go run . server
+```
+
+## Project Structure
+
+```
+├── internal/
+│   ├── cmd/server/    # Server command and Fiber app setup
+│   ├── config/        # Configuration loading
+│   └── handler/       # HTTP handlers (health, hello)
+├── k1s-*.yaml         # Kubernetes manifests
+└── main.go            # CLI entry point
+```
+
+## API Endpoints
+
+| Endpoint   | Method | Description                          |
+|------------|--------|--------------------------------------|
+| `/`        | GET    | Returns greeting message             |
+| `/healthz` | GET    | Health check (returns 204 if alive)  |
+| `/die`     | GET    | Marks service as dead for testing    |
+
 ## Step by Step
 
 At the beginning you need an up and running Kubernetes cluster.
