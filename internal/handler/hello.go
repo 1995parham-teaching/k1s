@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v3"
 	"go.uber.org/zap"
 )
 
@@ -36,7 +36,7 @@ func NewHello(msg string, logger *zap.Logger) *Hello {
 
 // Say says hello to Raha.
 // nolint: wrapcheck
-func (hh *Hello) Say(c *fiber.Ctx) error {
+func (hh *Hello) Say(c fiber.Ctx) error {
 	return c.Status(http.StatusOK).SendString(fmt.Sprintf("Say %s from %s to Raha", hh.GreetingMessage, hh.Hostname))
 }
 

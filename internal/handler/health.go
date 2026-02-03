@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v3"
 )
 
 type Health struct {
@@ -15,13 +15,13 @@ func NewHealth() *Health {
 	return &Health{Status: true}
 }
 
-func (h *Health) Die(c *fiber.Ctx) error { // nolint: wrapcheck
+func (h *Health) Die(c fiber.Ctx) error { // nolint: wrapcheck
 	h.Status = false
 
 	return c.Status(http.StatusNoContent).Send(nil)
 }
 
-func (h *Health) IsAlive(c *fiber.Ctx) error { // nolint: wrapcheck
+func (h *Health) IsAlive(c fiber.Ctx) error { // nolint: wrapcheck
 	if !h.Status {
 		time.Sleep(1 * time.Minute)
 
