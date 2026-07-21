@@ -12,6 +12,8 @@ import (
 	"go.uber.org/zap"
 )
 
+const nameRaha = "Raha"
+
 func TestHello_Say(t *testing.T) {
 	t.Parallel()
 
@@ -47,8 +49,8 @@ func TestHello_Say(t *testing.T) {
 		t.Errorf("expected body to contain 'Hello', got: %s", bodyStr)
 	}
 
-	if !strings.Contains(bodyStr, "Raha") {
-		t.Errorf("expected body to contain 'Raha', got: %s", bodyStr)
+	if !strings.Contains(bodyStr, nameRaha) {
+		t.Errorf("expected body to contain %q, got: %s", nameRaha, bodyStr)
 	}
 }
 
@@ -96,9 +98,9 @@ func TestHello_TableDriven(t *testing.T) {
 		expectedCode    int
 		expectedContain []string
 	}{
-		{"hello greeting", "Hello", http.StatusOK, []string{"Hello", "Raha"}},
-		{"custom greeting", "Salam", http.StatusOK, []string{"Salam", "Raha"}},
-		{"empty greeting", "", http.StatusOK, []string{"Raha"}},
+		{"hello greeting", "Hello", http.StatusOK, []string{"Hello", nameRaha}},
+		{"custom greeting", "Salam", http.StatusOK, []string{"Salam", nameRaha}},
+		{"empty greeting", "", http.StatusOK, []string{nameRaha}},
 	}
 
 	for _, tc := range tests {
