@@ -13,3 +13,12 @@ linters:
     - revive
     - wrapcheck
     - noinlineerr
+    # deprecated, replaced by their new major versions (exhaustruct_v5, gomodguard_v2, wsl_v5)
+    - exhaustruct
+    - gomodguard
+    - wsl
+  settings:
+    exhaustruct_v5:
+      ignore-patterns:
+        # cobra commands are built with only a handful of their many optional fields
+        - '.+/cobra\.Command$'
